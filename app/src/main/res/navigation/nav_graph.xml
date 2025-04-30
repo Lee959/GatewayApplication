@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gatewayFragment">
+
+
+    <fragment
+        android:id="@+id/gatewayFragment"
+        android:name="com.example.gatewayapplication.gatewayFragment"
+        android:label="fragment_gateway"
+        tools:layout="@layout/fragment_gateway" >
+        <action
+            android:id="@+id/action_gatewayFragment_to_connectedDevice"
+            app:destination="@id/connectedDevice" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectedDevice"
+        android:name="com.example.gatewayapplication.connectedDevice"
+        android:label="fragment_connected_device"
+        tools:layout="@layout/fragment_connected_device" />
+</navigation>
