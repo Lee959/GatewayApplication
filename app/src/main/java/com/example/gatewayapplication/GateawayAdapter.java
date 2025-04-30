@@ -1,9 +1,11 @@
 package com.example.gatewayapplication;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.LinkedList;
 
@@ -11,7 +13,7 @@ public class GateawayAdapter extends BaseAdapter {
     private Context context;
     private LinkedList<Gateaway> gateaways;
 
-    public GateawayAdapter(Context context, LinkedList<Gateaway> gateaways) {
+    public GateawayAdapter(LinkedList<Gateaway> gateaways, Context context) {
         this.context = context;
         this.gateaways = gateaways;
     }
@@ -34,6 +36,9 @@ public class GateawayAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        convertView = LayoutInflater.from(context).inflate(R.layout.gatewaylist_item,parent,false);
+        TextView gatewayName = (TextView) convertView.findViewById(R.id.textView);
+        gatewayName.setText(gateaways.get(position).getName());
+        return convertView;
     }
 }
