@@ -1,0 +1,37 @@
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── gatewayapplication/
+│   │   │               ├── MainActivity.java                 // Main screen that shows list of gateways
+│   │   │               ├── DeviceListActivity.java          // Screen that shows devices for a gateway
+│   │   │               ├── GatewayModel.java                // Data model for a gateway
+│   │   │               ├── DeviceModel.java                 // Data model for a device
+│   │   │               ├── GatewayListBean.java             // Container for list of gateways
+│   │   │               ├── DeviceListBean.java              // Container for list of devices
+│   │   │               ├── GatewayAdapter.java              // Adapter for displaying gateways in a list
+│   │   │               ├── DeviceAdapter.java               // Adapter for displaying devices in a list
+│   │   │               └── DeviceTypeCode.java              // Constants for device types
+│   │   │
+│   │   └── owon/
+│   │       └── sdk/
+│   │           └── util/
+│   │               ├── DeviceMessagesManager.java           // Handles device communication
+│   │               ├── SocketMessageListener.java           // Interface for receiving device messages
+│   │               └── Constants.java                       // Constants for command IDs
+│   │
+│   ├── res/
+│   │   ├── layout/
+│   │   │   ├── activity_main.xml                            // Layout for main screen
+│   │   │   ├── activity_device_list.xml                     // Layout for device list screen
+│   │   │   ├── item_gateway.xml                             // Layout for a single gateway in the list
+│   │   │   └── item_device.xml                              // Layout for a single device in the list
+│   │   │
+│   │   ├── values/
+│   │   │   └── colors.xml                                   // Color definitions
+│   │   │
+│   │   └── drawable/                                        // Icons for the app
+│   │
+│   └── AndroidManifest.xml                                  // Android app configuration
