@@ -14,15 +14,12 @@ public class GatewayListBean {
     public List<GatewayModel> getGateways() {
         return gateways;
     }
-
     public void setGateways(List<GatewayModel> gateways) {
         this.gateways = gateways;
     }
-
     public int getTotalCount() {
         return totalCount;
     }
-
     public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
     }

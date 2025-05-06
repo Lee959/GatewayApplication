@@ -48,27 +48,43 @@ public class DeviceModel {
     public String getDeviceTypeName() {
         switch (deviceType) {
             case Constants.LIGHT_601:
-                return "Basic Light";
+                return "灯，只有开关";
             case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
-                return "Smart Light";
+                return "可调节亮度和色温灯";
             case DeviceTypeCode.TH_SENSOR:
-                return "Temperature & Humidity Sensor";
+                return "温湿度传感器";
             case DeviceTypeCode.LX_SENSOR:
-                return "Light Sensor";
+                return "光照传感器";
             case DeviceTypeCode.SMOKE_SENSOR_ZONE:
-                return "Smoke Detector";
+                return "烟雾传感器";
             case DeviceTypeCode.MOTION_SENSOR_ZONE:
-                return "Motion Sensor";
+                return "人体传感器";
             case DeviceTypeCode.AC_SENSOR:
-                return "IR Controller";
+                return "红外转发器";
             case DeviceTypeCode.WARN_SENSOR:
-                return "Alarm";
+                return "声光报警器";
             case DeviceTypeCode.WARN_MOTOR:
-                return "Curtain Motor";
+                return "窗帘电机";
             case DeviceTypeCode.DOOR_SENSOR:
-                return "Door Sensor";
+                return "们磁传感器";
             default:
-                return "Unknown Device";
+                return "未知设备";
         }
     }
+
+    /*
+
+        属性	                                       描述
+    Constants.LIGHT_601	                            灯，只有开关
+    Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB	    可调节亮度和色温灯
+    DeviceTypeCode.TH_SENSOR	                    温湿度传感器
+    DeviceTypeCode.LX_SENSOR	                    光照传感器
+    DeviceTypeCode.SMOKE_SENSOR_ZONE	            烟雾报警器
+    DeviceTypeCode.MOTION_SENSOR_ZONE	            人体传感器
+    DeviceTypeCode.AC_SENSOR	                    红外转发器
+    DeviceTypeCode.WARN_SENSOR	                    声光报警器
+    DeviceTypeCode.WARN_MOTOR	                    窗帘电机
+    DeviceTypeCode.DOOR_SENSOR	                    门磁感应器
+
+     */
 }

@@ -11,9 +11,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import owon.sdk.util.DeviceMessagesManager;
-import owon.sdk.util.SocketMessageListener;
-import owon.sdk.util.Constants;
+import com.example.gatewayapplication.owon.sdk.util.DeviceMessagesManager;
+import com.example.gatewayapplication.owon.sdk.util.Constants;
+import com.example.gatewayapplication.owon.sdk.util.SocketMessageListener;
 
 public class MainActivity extends AppCompatActivity implements SocketMessageListener {
 
@@ -27,19 +27,13 @@ public class MainActivity extends AppCompatActivity implements SocketMessageList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
         gatewayListView = findViewById(R.id.gateway_listview);
-
-        // Initialize device manager
         deviceManager = DeviceMessagesManager.getInstance();
         deviceManager.registerMessageListener(this);
-
-        // Initialize gateway list
         gatewayList = new ArrayList<>();
         gatewayAdapter = new GatewayAdapter(this, gatewayList);
         gatewayListView.setAdapter(gatewayAdapter);
 
-        // Set item click listener
         gatewayListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,12 +51,11 @@ public class MainActivity extends AppCompatActivity implements SocketMessageList
 
     private void queryGatewayList() {
         // Query gateway list using DeviceMessagesManager
-        deviceManager.QueryGatewayList(1, 10); // page 1, 10 items per page
+        deviceManager.QueryGatewayList(1, 10);
     }
 
     @Override
     public void getMessage(int commandID, Object bean) {
-        // Handle message callbacks
         if (commandID == Constants.UpdateEPList) {
             // Gateway list callback
             runOnUiThread(new Runnable() {
@@ -84,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements SocketMessageList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Unregister message listener
         deviceManager.unregisterMessageListener(this);
     }
 }
