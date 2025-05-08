@@ -30,39 +30,26 @@ public class DeviceListActivity extends AppCompatActivity implements SocketMessa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
-        // Get gateway name from intent
         gatewayName = getIntent().getStringExtra("GATEWAY_NAME");
-
-        // Initialize views
         gatewayNameTextView = findViewById(R.id.gateway_name_textview);
         deviceListView = findViewById(R.id.device_listview);
-
-        // Set gateway name
         gatewayNameTextView.setText("Gateway: " + gatewayName);
-
-        // Initialize device manager
         deviceManager = DeviceMessagesManager.getInstance();
         deviceManager.registerMessageListener(this);
-
-        // Initialize device list
         deviceList = new ArrayList<>();
         deviceAdapter = new DeviceAdapter(this, deviceList);
         deviceListView.setAdapter(deviceAdapter);
 
-        // Query device list
         queryDeviceList();
     }
 
     private void queryDeviceList() {
-        // Query device list using DeviceMessagesManager
         deviceManager.GetEpList();
     }
 
     @Override
     public void getMessage(int commandID, Object bean) {
-        // Handle message callbacks
         if (commandID == Constants.ZigBeeGetEPList) {
-            // Device list callback
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

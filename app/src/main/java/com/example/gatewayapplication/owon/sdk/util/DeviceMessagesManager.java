@@ -55,7 +55,7 @@ public class DeviceMessagesManager {
      */
     public void getDeviceState(DeviceModel device, int cache) {
         // TODO: Send a request to the server
-        simulateDeviceStateResponse(device);
+        simulateDeviceStateResponse(device, cache);
     }
 
 
@@ -83,8 +83,8 @@ public class DeviceMessagesManager {
         List<DeviceModel> devices = new ArrayList<>();
 
         // Add different types of devices
-        devices.add(new DeviceModel("Living Room Light", "dev001", Constants.LIGHT_601, true));
-        devices.add(new DeviceModel("Bedroom Light", "dev002", Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB, true));
+        devices.add(new DeviceModel("Light A", "dev001", Constants.LIGHT_601, true));
+        devices.add(new DeviceModel("Light B", "dev002", Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB, true));
         devices.add(new DeviceModel("Temperature Sensor", "dev003", com.example.gatewayapplication.DeviceTypeCode.TH_SENSOR, true));
         devices.add(new DeviceModel("Motion Sensor", "dev004", com.example.gatewayapplication.DeviceTypeCode.MOTION_SENSOR_ZONE, false));
         devices.add(new DeviceModel("Smoke Detector", "dev005", com.example.gatewayapplication.DeviceTypeCode.SMOKE_SENSOR_ZONE, true));
@@ -104,7 +104,7 @@ public class DeviceMessagesManager {
      *
      * @param device The device to simulate a response for.
      */
-    private void simulateDeviceStateResponse(DeviceModel device) {
+    private void simulateDeviceStateResponse(DeviceModel device, int cache) {
         // For demonstration purposes, we'll simulate different responses based on device type
         int commandID;
         Object bean;
@@ -112,43 +112,36 @@ public class DeviceMessagesManager {
         switch (device.getDeviceType()) {
             case Constants.LIGHT_601:
             case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
-                // Light device
                 commandID = Constants.UpdateSwitchgear;
                 bean = createLightStateBean(device);
                 break;
 
             case com.example.gatewayapplication.DeviceTypeCode.TH_SENSOR:
-                // Temperature and humidity sensor
                 commandID = Constants.THI_UPDATE;
                 bean = createTempHumidityStateBean(device);
                 break;
 
             case com.example.gatewayapplication.DeviceTypeCode.LX_SENSOR:
-                // Light sensor
                 commandID = Constants.ILLUM_UPDATE;
                 bean = createLightSensorStateBean(device);
                 break;
 
             case com.example.gatewayapplication.DeviceTypeCode.MOTION_SENSOR_ZONE:
-                // Motion sensor
                 commandID = Constants.MotionSensorUpdate;
                 bean = createMotionSensorStateBean(device);
                 break;
 
             case com.example.gatewayapplication.DeviceTypeCode.SMOKE_SENSOR_ZONE:
-                // Smoke detector
                 commandID = Constants.WarningSensor;
                 bean = createSmokeDetectorStateBean(device);
                 break;
 
             default:
-                // Default case
                 commandID = 0;
                 bean = null;
                 break;
         }
 
-        // Notify listeners if we have a valid response
         if (bean != null) {
             for (SocketMessageListener listener : listeners) {
                 listener.getMessage(commandID, bean);
@@ -156,30 +149,25 @@ public class DeviceMessagesManager {
         }
     }
 
-    // Helper methods to create device state beans for demonstration purposes
+    // Helper Function: Create device state beans for demonstration purposes
 
     private Object createLightStateBean(DeviceModel device) {
-        // This would be a real bean in a real implementation
         return new Object();
     }
 
     private Object createTempHumidityStateBean(DeviceModel device) {
-        // This would be a real bean in a real implementation
         return new Object();
     }
 
     private Object createLightSensorStateBean(DeviceModel device) {
-        // This would be a real bean in a real implementation
         return new Object();
     }
 
     private Object createMotionSensorStateBean(DeviceModel device) {
-        // This would be a real bean in a real implementation
         return new Object();
     }
 
     private Object createSmokeDetectorStateBean(DeviceModel device) {
-        // This would be a real bean in a real implementation
         return new Object();
     }
 }
