@@ -41,7 +41,7 @@ public class GatewayAdapter extends ArrayAdapter<GatewayModel> {
 
         GatewayModel gateway = gatewayList.get(position);
 
-        viewHolder.gatewayIcon.setImageResource(R.drawable.ic_gateway);
+//        viewHolder.gatewayIcon.setImageResource(R.drawable.ic_gateway);
         viewHolder.gatewayName.setText(gateway.getName());
 
         return convertView;

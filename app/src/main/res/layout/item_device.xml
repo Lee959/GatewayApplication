@@ -9,14 +9,18 @@
         android:id="@+id/device_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_device"
-        android:contentDescription="Device Icon"/>
+        android:contentDescription="Device Icon" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/device_icon"-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:src="@drawable/ic_device"-->
+    <!--        android:contentDescription="Device Icon"/>-->
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
         android:orientation="vertical">
 
         <TextView

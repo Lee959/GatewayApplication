@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.gatewayapplication.owon.sdk.util.DeviceMessagesManager;
-
-import owon.sdk.util.SocketMessageListener;
-
 import com.example.gatewayapplication.owon.sdk.util.Constants;
 import com.example.gatewayapplication.owon.sdk.util.SocketMessageListener;
 
