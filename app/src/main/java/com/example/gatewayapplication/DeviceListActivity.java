@@ -1,17 +1,20 @@
 package com.example.gatewayapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gatewayapplication.owon.sdk.util.Constants;
+import com.example.gatewayapplication.owon.sdk.util.DeviceMessagesManager;
+import com.example.gatewayapplication.owon.sdk.util.SocketMessageListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.gatewayapplication.owon.sdk.util.DeviceMessagesManager;
-import com.example.gatewayapplication.owon.sdk.util.Constants;
-import com.example.gatewayapplication.owon.sdk.util.SocketMessageListener;
+
 
 public class DeviceListActivity extends AppCompatActivity implements SocketMessageListener {
 
@@ -27,25 +30,37 @@ public class DeviceListActivity extends AppCompatActivity implements SocketMessa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
+        // Get gateway name from intent
         gatewayName = getIntent().getStringExtra("GATEWAY_NAME");
+
+        // Initialize views
         gatewayNameTextView = findViewById(R.id.gateway_name_textview);
         deviceListView = findViewById(R.id.device_listview);
+
+        // Set gateway name
         gatewayNameTextView.setText("Gateway: " + gatewayName);
+
+        // Initialize device manager
         deviceManager = DeviceMessagesManager.getInstance();
         deviceManager.registerMessageListener(this);
+
+        // Initialize device list
         deviceList = new ArrayList<>();
         deviceAdapter = new DeviceAdapter(this, deviceList);
         deviceListView.setAdapter(deviceAdapter);
 
+        // Query device list
         queryDeviceList();
     }
 
     private void queryDeviceList() {
+        // Query device list using DeviceMessagesManager
         deviceManager.GetEpList();
     }
 
     @Override
     public void getMessage(int commandID, Object bean) {
+        // Handle message callbacks
         if (commandID == Constants.ZigBeeGetEPList) {
             // Device list callback
             runOnUiThread(new Runnable() {
@@ -85,16 +100,20 @@ public class DeviceListActivity extends AppCompatActivity implements SocketMessa
     }
 
     private void queryDeviceState(DeviceModel device) {
+        // Query device state using DeviceMessagesManager
         deviceManager.getDeviceState(device, 0); // Use 0 to not use cache
     }
 
     private void updateDeviceState(int commandID, Object bean) {
+        // Update device state based on command ID and bean type
+        // This would require more implementation based on device types
         deviceAdapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // Unregister message listener
         deviceManager.unregisterMessageListener(this);
     }
 }
