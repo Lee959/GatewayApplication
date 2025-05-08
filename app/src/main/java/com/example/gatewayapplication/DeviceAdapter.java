@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.example.gatewayapplication.owon.sdk.util.Constants;
 
@@ -51,49 +52,49 @@ public class DeviceAdapter extends ArrayAdapter<DeviceModel> {
 
         if (device.isLinkStatus()) {
             viewHolder.deviceStatus.setText("Online");
-            viewHolder.deviceStatus.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
+            viewHolder.deviceStatus.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_dark));
         } else {
             viewHolder.deviceStatus.setText("Offline");
-            viewHolder.deviceStatus.setTextColor(context.getResources().getColor(android.R.color.holo_red_dark));
+            viewHolder.deviceStatus.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark));
         }
 
         return convertView;
     }
 
     private void setDeviceIcon(ImageView imageView, int deviceType) {
-        switch (deviceType) {
-            case Constants.LIGHT_601:
-            case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
-                imageView.setImageResource(R.drawable.ic_light);
-                break;
-            case DeviceTypeCode.TH_SENSOR:
-//                imageView.setImageResource(R.drawable.ic_temp_sensor);
-                break;
-            case DeviceTypeCode.LX_SENSOR:
-//                imageView.setImageResource(R.drawable.ic_light_sensor);
-                break;
-            case DeviceTypeCode.SMOKE_SENSOR_ZONE:
-//                imageView.setImageResource(R.drawable.ic_smoke_sensor);
-                break;
-            case DeviceTypeCode.MOTION_SENSOR_ZONE:
-//                imageView.setImageResource(R.drawable.ic_motion_sensor);
-                break;
-            case DeviceTypeCode.AC_SENSOR:
-//                imageView.setImageResource(R.drawable.ic_ir_controller);
-                break;
-            case DeviceTypeCode.WARN_SENSOR:
-//                imageView.setImageResource(R.drawable.ic_alarm);
-                break;
-            case DeviceTypeCode.WARN_MOTOR:
-//                imageView.setImageResource(R.drawable.ic_curtain);
-                break;
-            case DeviceTypeCode.DOOR_SENSOR:
-//                imageView.setImageResource(R.drawable.ic_door_sensor);
-                break;
-            default:
-//                imageView.setImageResource(R.drawable.ic_device);
-                break;
-        }
+//        switch (deviceType) {
+//            case Constants.LIGHT_601:
+//            case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
+//                imageView.setImageResource(R.drawable.ic_light);
+//                break;
+//            case DeviceTypeCode.TH_SENSOR:
+////                imageView.setImageResource(R.drawable.ic_temp_sensor);
+//                break;
+//            case DeviceTypeCode.LX_SENSOR:
+////                imageView.setImageResource(R.drawable.ic_light_sensor);
+//                break;
+//            case DeviceTypeCode.SMOKE_SENSOR_ZONE:
+////                imageView.setImageResource(R.drawable.ic_smoke_sensor);
+//                break;
+//            case DeviceTypeCode.MOTION_SENSOR_ZONE:
+////                imageView.setImageResource(R.drawable.ic_motion_sensor);
+//                break;
+//            case DeviceTypeCode.AC_SENSOR:
+////                imageView.setImageResource(R.drawable.ic_ir_controller);
+//                break;
+//            case DeviceTypeCode.WARN_SENSOR:
+////                imageView.setImageResource(R.drawable.ic_alarm);
+//                break;
+//            case DeviceTypeCode.WARN_MOTOR:
+////                imageView.setImageResource(R.drawable.ic_curtain);
+//                break;
+//            case DeviceTypeCode.DOOR_SENSOR:
+////                imageView.setImageResource(R.drawable.ic_door_sensor);
+//                break;
+//            default:
+////                imageView.setImageResource(R.drawable.ic_device);
+//                break;
+//        }
     }
 
     private static class ViewHolder {
