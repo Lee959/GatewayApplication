@@ -1,5 +1,7 @@
 package com.example.gatewayapplication;
 
+import com.example.gatewayapplication.owon.sdk.util.Constants;
+
 public class DeviceModel {
     private String name;
     private String id;

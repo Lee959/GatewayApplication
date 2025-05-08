@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class GatewayAdapter extends ArrayAdapter<GatewayModel> {
 
     private Context context;
