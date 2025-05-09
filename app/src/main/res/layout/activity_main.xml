@@ -21,7 +21,6 @@
         android:id="@+id/gateway_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"/>
+        android:divider="@null" />
 
 </LinearLayout>
