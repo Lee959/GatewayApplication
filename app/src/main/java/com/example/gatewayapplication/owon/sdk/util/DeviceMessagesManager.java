@@ -62,9 +62,9 @@ public class DeviceMessagesManager {
     private void simulateGatewayListResponse() {
         // Create a list of simulated gateways
         List<com.example.gatewayapplication.GatewayModel> gateways = new ArrayList<>();
-        gateways.add(new com.example.gatewayapplication.GatewayModel("Living Room Gateway", "gw001"));
-        gateways.add(new com.example.gatewayapplication.GatewayModel("Bedroom Gateway", "gw002"));
-        gateways.add(new com.example.gatewayapplication.GatewayModel("Kitchen Gateway", "gw003"));
+        gateways.add(new com.example.gatewayapplication.GatewayModel("Gateway A", "gw001"));
+        gateways.add(new com.example.gatewayapplication.GatewayModel("Gateway B", "gw002"));
+        gateways.add(new com.example.gatewayapplication.GatewayModel("Gateway C", "gw003"));
 
         // Create a gateway list bean
         GatewayListBean gatewayListBean = new GatewayListBean(gateways, gateways.size());

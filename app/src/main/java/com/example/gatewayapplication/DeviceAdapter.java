@@ -51,10 +51,10 @@ public class DeviceAdapter extends ArrayAdapter<DeviceModel> {
         viewHolder.deviceType.setText(device.getDeviceTypeName());
 
         if (device.isLinkStatus()) {
-            viewHolder.deviceStatus.setText("Online");
+            viewHolder.deviceStatus.setText("在线");
             viewHolder.deviceStatus.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_dark));
         } else {
-            viewHolder.deviceStatus.setText("Offline");
+            viewHolder.deviceStatus.setText("离线");
             viewHolder.deviceStatus.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark));
         }
 
@@ -62,39 +62,39 @@ public class DeviceAdapter extends ArrayAdapter<DeviceModel> {
     }
 
     private void setDeviceIcon(ImageView imageView, int deviceType) {
-//        switch (deviceType) {
-//            case Constants.LIGHT_601:
-//            case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
-//                imageView.setImageResource(R.drawable.ic_light);
-//                break;
-//            case DeviceTypeCode.TH_SENSOR:
-////                imageView.setImageResource(R.drawable.ic_temp_sensor);
-//                break;
-//            case DeviceTypeCode.LX_SENSOR:
-////                imageView.setImageResource(R.drawable.ic_light_sensor);
-//                break;
-//            case DeviceTypeCode.SMOKE_SENSOR_ZONE:
-////                imageView.setImageResource(R.drawable.ic_smoke_sensor);
-//                break;
-//            case DeviceTypeCode.MOTION_SENSOR_ZONE:
-////                imageView.setImageResource(R.drawable.ic_motion_sensor);
-//                break;
-//            case DeviceTypeCode.AC_SENSOR:
-////                imageView.setImageResource(R.drawable.ic_ir_controller);
-//                break;
-//            case DeviceTypeCode.WARN_SENSOR:
-////                imageView.setImageResource(R.drawable.ic_alarm);
-//                break;
-//            case DeviceTypeCode.WARN_MOTOR:
-////                imageView.setImageResource(R.drawable.ic_curtain);
-//                break;
-//            case DeviceTypeCode.DOOR_SENSOR:
-////                imageView.setImageResource(R.drawable.ic_door_sensor);
-//                break;
-//            default:
-////                imageView.setImageResource(R.drawable.ic_device);
-//                break;
-//        }
+        switch (deviceType) {
+            case Constants.LIGHT_601:
+            case Constants.LIGHT_EXTEND_LO_COLOR_TEMP_GOODVB:
+                imageView.setImageResource(R.drawable.lightbulb_24px);
+                break;
+            case DeviceTypeCode.TH_SENSOR:
+                imageView.setImageResource(R.drawable.thermostat_24px);
+                break;
+            case DeviceTypeCode.LX_SENSOR:
+                imageView.setImageResource(R.drawable.light_sensor_24px);
+                break;
+            case DeviceTypeCode.SMOKE_SENSOR_ZONE:
+                imageView.setImageResource(R.drawable.detector_smoke_24px);
+                break;
+            case DeviceTypeCode.MOTION_SENSOR_ZONE:
+                imageView.setImageResource(R.drawable.motion_sensor_24px);
+                break;
+            case DeviceTypeCode.AC_SENSOR:
+                imageView.setImageResource(R.drawable.ac_controller_24px);
+                break;
+            case DeviceTypeCode.WARN_SENSOR:
+                imageView.setImageResource(R.drawable.light_sound_sensor_24px);
+                break;
+            case DeviceTypeCode.WARN_MOTOR:
+                imageView.setImageResource(R.drawable.curtains_24px);
+                break;
+            case DeviceTypeCode.DOOR_SENSOR:
+                imageView.setImageResource(R.drawable.sensor_door_24px);
+                break;
+            default:
+                imageView.setImageResource(R.drawable.device_unknown_24px);
+                break;
+        }
     }
 
     private static class ViewHolder {

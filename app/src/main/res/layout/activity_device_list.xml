@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connected Devices"
+        android:text="网关下所有联网设备"
         android:textSize="16sp"
         android:padding="8dp" />
 
