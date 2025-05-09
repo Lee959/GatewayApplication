@@ -89,11 +89,14 @@ public class DeviceMessagesManager {
         devices.add(new DeviceModel("Motion Sensor", "dev004", com.example.gatewayapplication.DeviceTypeCode.MOTION_SENSOR_ZONE, false));
         devices.add(new DeviceModel("Smoke Detector", "dev005", com.example.gatewayapplication.DeviceTypeCode.SMOKE_SENSOR_ZONE, true));
         devices.add(new DeviceModel("Curtain Motor", "dev006", com.example.gatewayapplication.DeviceTypeCode.WARN_MOTOR, false));
+        devices.add(new DeviceModel("AC Sensor", "dev006", com.example.gatewayapplication.DeviceTypeCode.AC_SENSOR, false));
+        devices.add(new DeviceModel("WARN Sensor", "dev006", com.example.gatewayapplication.DeviceTypeCode.WARN_SENSOR, false));
+        devices.add(new DeviceModel("DOOR Sensor", "dev006", com.example.gatewayapplication.DeviceTypeCode.DOOR_SENSOR, false));
+        devices.add(new DeviceModel("TH Sensor", "dev006", com.example.gatewayapplication.DeviceTypeCode.TH_SENSOR, false));
+        devices.add(new DeviceModel("LX Sensor", "dev006", com.example.gatewayapplication.DeviceTypeCode.LX_SENSOR, false));
 
-        // Create a device list bean
         com.example.gatewayapplication.DeviceListBean deviceListBean = new com.example.gatewayapplication.DeviceListBean(devices);
 
-        // Notify listeners
         for (SocketMessageListener listener : listeners) {
             listener.getMessage(Constants.ZigBeeGetEPList, deviceListBean);
         }

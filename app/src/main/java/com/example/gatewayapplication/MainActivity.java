@@ -9,10 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.gatewayapplication.DeviceListActivity;
-import com.example.gatewayapplication.GatewayAdapter;
-import com.example.gatewayapplication.GatewayListBean;
-import com.example.gatewayapplication.GatewayModel;
 import com.example.gatewayapplication.owon.sdk.util.Constants;
 import com.example.gatewayapplication.owon.sdk.util.DeviceMessagesManager;
 import com.example.gatewayapplication.owon.sdk.util.SocketMessageListener;
