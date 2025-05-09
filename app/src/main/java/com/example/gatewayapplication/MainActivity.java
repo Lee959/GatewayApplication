@@ -32,19 +32,15 @@ public class MainActivity extends AppCompatActivity implements SocketMessageList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
         gatewayListView = findViewById(R.id.gateway_listview);
 
-        // Initialize device manager
         deviceManager = DeviceMessagesManager.getInstance();
         deviceManager.registerMessageListener(this);
 
-        // Initialize gateway list
         gatewayList = new ArrayList<>();
         gatewayAdapter = new GatewayAdapter(this, gatewayList);
         gatewayListView.setAdapter(gatewayAdapter);
 
-        // Set item click listener
         gatewayListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements SocketMessageList
             }
         });
 
-        // Query gateway list
         queryGatewayList();
     }
 

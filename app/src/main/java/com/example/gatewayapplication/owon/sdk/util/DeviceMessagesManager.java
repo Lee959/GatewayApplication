@@ -38,12 +38,12 @@ public class DeviceMessagesManager {
     }
 
     public void QueryGatewayList(int page, int pagesize) {
-        // TODO: Send a request to the server
+        // TODO: QueryGatewayList : Send a request to the server
         simulateGatewayListResponse();
     }
 
     public void GetEpList() {
-        // TODO: Send a request to the server
+        // TODO: GetEpList: Send a request to the server
         simulateDeviceListResponse();
     }
 
@@ -54,11 +54,11 @@ public class DeviceMessagesManager {
      * @param cache  Use cache flag (0 for no cache, 1 for using cache).
      */
     public void getDeviceState(DeviceModel device, int cache) {
-        // TODO: Send a request to the server
+        // TODO: getDeviceState: Send a request to the server
         simulateDeviceStateResponse(device, cache);
     }
 
-
+    // Testing
     private void simulateGatewayListResponse() {
         // Create a list of simulated gateways
         List<com.example.gatewayapplication.GatewayModel> gateways = new ArrayList<>();
@@ -76,7 +76,7 @@ public class DeviceMessagesManager {
     }
 
     /**
-     * Simulate a device list response for demonstration purposes.
+     * Testing: Simulate a device list response for demonstration purposes.
      */
     private void simulateDeviceListResponse() {
         // Create a list of simulated devices
@@ -100,7 +100,7 @@ public class DeviceMessagesManager {
     }
 
     /**
-     * Simulate a device state response for demonstration purposes.
+     * Testing: Simulate a device state response for demonstration purposes.
      *
      * @param device The device to simulate a response for.
      */

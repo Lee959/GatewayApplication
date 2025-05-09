@@ -68,7 +68,7 @@ public class DeviceModel {
             case DeviceTypeCode.WARN_MOTOR:
                 return "窗帘电机";
             case DeviceTypeCode.DOOR_SENSOR:
-                return "们磁传感器";
+                return "门磁传感器";
             default:
                 return "未知设备";
         }
